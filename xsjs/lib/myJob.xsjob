@@ -1,0 +1,9 @@
+{
+	"description": "Perform my task",
+	"action": "myTasks.xsjs::create",
+	"schedules": [{
+		"description": "Perform my task every 15 seconds", 
+		"xscron": "* * * * * * */15",
+		"parameter": {} 
+	}]
+}

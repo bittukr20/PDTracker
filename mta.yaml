@@ -1,0 +1,33 @@
+ID: xsaJobsXSJS
+_schema-version: '2.0'
+version: 0.0.1
+resources:
+  - name: jobScheduler
+    type: com.sap.xs.job-scheduler
+  - name: hdi_db
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+  - name: xsaJobsXSJSuaa
+    type: com.sap.xs.uaa-space
+    parameters:
+      path: ./xs-security.json
+modules:
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+  - name: xsjs
+    type: nodejs
+    path: xsjs
+    provides:
+      - name: xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: hdi_db
+      - name: xsaJobsXSJSuaa
+      - name: jobScheduler
+    properties:
+      SAP_JWT_TRUST_ACL: '[{"clientid":"*","identityzone":"*"}]'
