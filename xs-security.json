@@ -4,7 +4,7 @@
 		"name": "$XSAPPNAME.Viewer",
 		"description": "Scope for Viewer"
 	}, {
-		"name": "$XSAPPNAME.JobScheduler",
+		"name": "$XSAPPNAME.JOBSCHEDULER",
 		"description": "Scope for Job Scheduler",
 		"grant-as-authority-to-apps": ["jobscheduler"]
 	}],
@@ -15,6 +15,6 @@
 	}, {
 		"name": "xsaJobsXSJSJobScheduler",
 		"description": "Role Template for Job Scheduler",
-		"scope-references": ["$XSAPPNAME.JobScheduler"]
+		"scope-references": ["$XSAPPNAME.JOBSCHEDULER"]
 	}]
 }
